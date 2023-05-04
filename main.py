@@ -1,8 +1,3 @@
-"""
-Bonusuri rezolvate:
-15. Cand vine randul playerului sa mute, sa se marcheze pe interfata grafica pozitiile valide in care poate plasa un simbol.
-18. Optiunea de restartare joc
-"""
 import itertools
 import time
 
@@ -541,7 +536,7 @@ def main():
     valid_response = False
     while not valid_response:
         try:
-            N = int(input("What should be the dimension of the game table? (minimum 4 maximum 10) "))
+            N = int(input("What should be the dimension of the game table? (minimum 4 maximum 10): "))
             if N < 4 or N > 10:
                 raise ValueError
             Game.NO_COLUMNS = N
@@ -551,17 +546,17 @@ def main():
     # game difficulty initialization
     valid_response = False
     while not valid_response:
-        difficulty = input("Choose game difficulty: (easy, medium, hard)")
+        difficulty = input("Choose game difficulty: (easy, medium, hard): ")
         if difficulty in ['easy', 'medium', 'hard']:
             valid_response = True
         else:
             print("The response must be one of the following: easy, medium, hard.")
     if difficulty == 'easy':
-        MAX_DEPTH = 5
-    if difficulty == 'medium':
         MAX_DEPTH = 6
-    if difficulty == 'hard':
+    if difficulty == 'medium':
         MAX_DEPTH = 7
+    if difficulty == 'hard':
+        MAX_DEPTH = 8
 
     # Save the game start time
     time_start = int(round(time.time() * 1000))
